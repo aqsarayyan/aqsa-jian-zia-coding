@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Profiles</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist-sans@1.0.0/geist-sans.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist-mono@1.0.0/geist-mono.min.css">
+    <style>
+        body {
+            font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #0b0b0b;
+            color: #d4d4d4;
+            margin: 0;
+            padding: 60px 20px;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: -0.1px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        header h1 {
+            font-family: 'Geist Sans', -apple-system, sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.6px;
+            margin-bottom: 12px;
+            color: #ffffff;
+            text-transform: lowercase;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: -0.1px;
+            font-weight: 400;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .profile-card {
+            background: #111111; 
+            border: 1px solid #262626; 
+            border-radius: 12px;
+            width: 350px;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .profile-card:hover {
+            border-color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 16px auto;
+            border: 1px solid #ffffff;
+            filter: grayscale(50%);
+            transition: filter 0.25s ease;
+        }
+
+        .profile-card:hover .profile-img {
+            filter: grayscale(0%);
+        }
+
+        .profile-card h2 {
+            font-family: 'Geist Sans', -apple-system, sans-serif;
+            margin: 0 0 6px 0;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: -0.4px;
+        }
+
+        .birthdate {
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.75rem;
+            color: #8a8a8a;
+            margin-bottom: 14px;
+        }
+
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.78rem;
+            color: #8a8a8a;
+            text-decoration: none;
+            margin: 0 auto 24px auto;
+            padding: 6px 12px;
+            border: 1px solid #262626;
+            border-radius: 20px;
+            background: #161616;
+            transition: all 0.2s ease;
+        }
+
+        .instagram-link:hover {
+            color: #ffffff;
+            border-color: #ffffff;
+            background: #1f1f1f;
+        }
+
+        .instagram-link svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        .fun-fact {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #e5e5e5;
+            text-align: left;
+            margin-bottom: 28px;
+            padding-top: 18px;
+            border-top: 1px solid #262626;
+        }
+
+        .profile-card:hover .fun-fact {
+            border-top-color: #404040;
+        }
+
+        .fun-fact strong {
+            font-family: 'Geist Mono', monospace;
+            font-weight: 500;
+            color: #ffffff;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .media-embed {
+            margin-top: auto;
+            width: 100%;
+            background: #000000;
+            border-radius: 12px;
+            padding: 2px;
+            border: 1px solid #1f1f1f;
+            box-sizing: border-box;
+            transition: border-color 0.25s ease;
+        }
+
+        .profile-card:hover .media-embed {
+            border-color: #333333;
+        }
+
+        iframe {
+            border: 0;
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+            filter: grayscale(100%) contrast(110%);
+            transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .profile-card:hover iframe {
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        @media (max-width: 1100px) {
+            .profile-container {
+                gap: 24px;
+            }
+            .profile-card {
+                width: 300px;
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 960px) {
+            .profile-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+            .profile-card {
+                width: 100%;
+                max-width: 360px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>meet the crew.</h1>
+        <p>an introduction to the team and the track we replay the most.</p>
+    </header>
+
+    <main class="profile-container">
+
+        <section class="profile-card">
+            <img src="aqsafoto.jpg" alt="Muhammad Aqsa Rayyan" class="profile-img">
+            <h2>Muhammad Aqsa Rayyan</h2>
+            <div class="birthdate">November 30, 2009</div>
+            
+            <a href="https://www.instagram.com/aqsa_rayyan" target="_blank" class="instagram-link">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                @aqsa_rayyan
+            </a>
+
+            <div class="fun-fact">
+                <strong>Fun fact!</strong>
+                Can code in multiple languages, but still forgets how to spell "length" on the first try.
+            </div>
+            <div class="media-embed">
+                <iframe src="https://open.spotify.com/embed/track/4z8CduM0gnyJxgLNrEvxEh?utm_source=generator" height="352" allow="encrypted-media"></iframe>
+            </div>
+        </section>
+
+        <section class="profile-card">
+            <img src="jianimut.jpeg" alt="Sitti Jihan Fairus" class="profile-img">
+            <h2>Sitti Jihan Fairus</h2>
+            <div class="birthdate">October 9, 2009</div>
+            
+            <a href="https://www.instagram.com/jiann_frs" target="_blank" class="instagram-link">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                @jiann_frs
+            </a>
+
+            <div class="fun-fact">
+                <strong>Fun fact!</strong>
+                Once drank three iced lattes in an hour and claimed she could hear colors.
+            </div>
+            <div class="media-embed">
+                <iframe src="https://open.spotify.com/embed/track/5xEM5hIgJ1jjgcEBfpkt2F?utm_source=generator" height="352" allow="encrypted-media"></iframe>
+            </div>
+        </section>
+
+        <section class="profile-card">
+            <img src="ziaziazia.jpeg" alt="Zia Syarafana Akbar" class="profile-img">
+            <h2>Zia Syarafana Akbar</h2>
+            <div class="birthdate">June 6, 2010</div>
+            
+            <a href="https://www.instagram.com/flutterby.zizi" target="_blank" class="instagram-link">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                @flutterby.zizi
+            </a>
+
+            <div class="fun-fact">
+                <strong>Fun fact!</strong>
+                The best way for me to gather energy is by sleeping all day long, but ironically, I can't sleep at night.
+            </div>
+            <div class="media-embed">
+                <iframe src="https://open.spotify.com/embed/track/39fD0qvjgk8RarJnoBiDTx?utm_source=generator" height="352" allow="encrypted-media"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
